@@ -8,8 +8,8 @@ import logging
 from ina219 import INA219,DeviceRangeError
 
 
-# Define I2C bus
-DEVICE_BUS = 1
+# On Radxa ROCK 5A Hardware X1.2 I2C8-M2 is SDA pin 3 and SCL pin 5.
+DEVICE_BUS = 8
 
 # Define device i2c slave address.
 DEVICE_ADDR = 0x17

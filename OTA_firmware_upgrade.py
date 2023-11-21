@@ -10,9 +10,11 @@ import requests
 # Method 1) Setting register in terminal: i2cset -y 1 0x17 50 127 b
 # Method 2) Remove all power connections and batteries, and then hold the power button, insert the batteries.
 
-# Define device bus and address, and firmware url.
-DEVICE_BUS = 1
+# On Radxa ROCK 5A Hardware X1.2 I2C8-M2 is SDA pin 3 and SCL pin 5.
+DEVICE_BUS = 8
 DEVICE_ADDR = 0x18
+
+# Define device bus and address, and firmware url.
 UPDATE_URL = "https://api.52pi.com/update"
 
 # instance of bus.

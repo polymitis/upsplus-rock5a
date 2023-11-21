@@ -1,9 +1,11 @@
 #!/bin/bash
 # UPS Plus installation script.
 
+# Configure Rock 5A GPIO pins 3 and 5 to I2C8 fuction.
+radxa-add-overlay.py -I rk3588-i2c8-m2
+
 # initializing init-functions.
 . /lib/lsb/init-functions
-sudo raspi-config nonint do_i2c 0
 
 # check if the network is working properly.
 log_action_msg "Welcome to 52Pi Technology UPS Plus auto-install Program!"
@@ -82,8 +84,8 @@ import logging
 from ina219 import INA219,DeviceRangeError
 
 
-# Define I2C bus
-DEVICE_BUS = 1
+# On Radxa ROCK 5A Hardware X1.2 I2C8-M2 is SDA pin 3 and SCL pin 5.
+DEVICE_BUS = 8
 
 # Define device i2c slave address.
 DEVICE_ADDR = 0x17
@@ -181,7 +183,8 @@ import requests
 from ina219 import INA219,DeviceRangeError
 import random
 
-DEVICE_BUS = 1
+# On Radxa ROCK 5A Hardware X1.2 I2C8-M2 is SDA pin 3 and SCL pin 5.
+DEVICE_BUS = 8
 DEVICE_ADDR = 0x17
 PROTECT_VOLT = 3700
 SAMPLE_TIME = 2
